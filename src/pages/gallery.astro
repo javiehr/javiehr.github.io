@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const items = [
+  {
+    src: "/images/gallery/graduation1.jpg",
+    title: "With some colleagues at our graduation",
+    description: "Celebrating our graduation ceremony in Automation Engineering, July 2023.",
+  },
+  {
+    src: "/images/gallery/vfd-repair.jpg",
+    title: "VFD Maintenance",
+    description: "Repairing a variable frequency drive for industrial equipment.",
+  },
+  // add more items here as you have more images/descriptions
+];
+---
+<BaseLayout title="Gallery">
+  <h1>Gallery</h1>
+  <div class="gallery-grid">
+    {items.map((item) => (
+      <figure>
+        <img src={item.src} alt={item.title} />
+        <figcaption>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </figcaption>
+      </figure>
+    ))}
+  </div>
+</BaseLayout>
+
+<style>
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  .gallery-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>

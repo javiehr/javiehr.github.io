@@ -1,0 +1,35 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { useTranslations } from '../i18n/utils';
+
+const { title } = Astro.props;
+const lang = Astro.currentLocale ?? 'en';
+const t = useTranslations(lang);
+---
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | Javier Horta</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href={getRelativeLocaleUrl(lang, '/')}>{t('nav.home')}</a>
+        <a href={getRelativeLocaleUrl(lang, '/about')}>{t('nav.about')}</a>
+        <a href={getRelativeLocaleUrl(lang, '/gallery')}>{t('nav.gallery')}</a>
+        <a href={getRelativeLocaleUrl(lang, '/contact')}>{t('nav.contact')}</a>
+      </nav>
+      <div class="lang-switcher">
+        <a href={getRelativeLocaleUrl('en', '/')}>EN</a> |
+        <a href={getRelativeLocaleUrl('es', '/')}>ES</a>
+      </div>
+    </header>
+
+    <main><slot /></main>
+
+    <footer>
+      <p>&copy; {new Date().getFullYear()} Javier Horta — {t('footer.rights')}</p>
+    </footer>
+  </body>
+</html>
