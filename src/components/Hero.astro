@@ -8,8 +8,10 @@ interface Props {
   photoSrc?: string;
   photoAlt: string;
   initials?: string;
+  ctaText: string;
+  ctaHref: string;
 }
-const { greeting, name, summary, quotes, photoSrc, photoAlt, initials = "" } = Astro.props;
+const { greeting, name, summary, quotes, photoSrc, photoAlt, initials = "", ctaText, ctaHref } = Astro.props;
 ---
 <section class="hero">
   <div class="hero-text">
@@ -34,6 +36,7 @@ const { greeting, name, summary, quotes, photoSrc, photoAlt, initials = "" } = A
 
 <section class="summary">
   <p>{summary}</p>
+  <a href={ctaHref} class="cta-button">{ctaText}</a>
 </section>
 
 <style>
@@ -65,7 +68,7 @@ const { greeting, name, summary, quotes, photoSrc, photoAlt, initials = "" } = A
     font-weight: bold;
   }
   .summary {
-    max-width: 800px;
+    max-width: 960px;
     margin: 0 auto 2rem auto;
     padding: 1.5rem;
     background: #f0f4f8;
@@ -102,6 +105,20 @@ const { greeting, name, summary, quotes, photoSrc, photoAlt, initials = "" } = A
     font-weight: bold;
     text-align: right;
   }
+  .cta-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.4rem;
+  background: var(--color-accent);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+.cta-button:hover {
+  background: var(--color-accent-dark);
+}
 </style>
 
 <script>

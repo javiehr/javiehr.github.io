@@ -1,12 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const lang = Astro.currentLocale ?? 'en';
 ---
 <BaseLayout title="Home">
   <Hero
     greeting="Hello, I am"
     name="Javier Horta"
-    summary="Automation Engineer with a background in FPGA design, embedded systems, and industrial power electronics."
+    summary="I am a graduate in Automation Engineering with 3 years of experience working in the manufacturing and oil industries. I worked on the maintenance, repair, and commissioning of automated equipment (industrial bottling, capping, and sealing machines) for personal hygiene product manufacturing. In the oil sector, I carried out the installation, maintenance, and repair of automated systems (electrical panels, PLCs, SCADA, VFDs) for monitoring and controlling crude oil extraction processes. My skills lie in the fields of electricity, electronics, instrumentation, and industrial automation. I have a particular interest in the design and development of embedded systems, specifically microcontroller programming and reconfigurable devices (FPGAs), as well as the integration of AI technologies into these systems."
     quotes={[
       { text: "I have not failed. I've just found 10,000 ways that won't work.", author: "Thomas Edison" },
       { text: "Imagination is more important than knowledge.", author: "Albert Einstein" },
@@ -14,5 +17,7 @@ import Hero from '../components/Hero.astro';
     ]}
     photoAlt="Javier Horta"
     initials="JH"
+    ctaText="Learn more about me"
+    ctaHref={getRelativeLocaleUrl(lang, '/about')}
   />
 </BaseLayout>

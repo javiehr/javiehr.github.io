@@ -1,6 +1,39 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const experience = [
+  {
+    date: "2024 — 2026",
+    company: "Central Petroleum Drilling and Extraction Company (EPEPC) — Matanzas, Cuba",
+    responsibilities: [
+      "Maintained and repaired variable frequency drives (VFDs) for industrial equipment",
+      "Serviced inverters/chargers and switch-mode power supplies (SMPS)",
+      "Diagnosed and resolved electrical faults on industrial power-electronic systems",
+    ],
+  },
+];
+
+const education = [
+  {
+    date: "2018 — 2023",
+    degree: "Automation Engineering",
+    institution: "Technological University of Havana José Antonio Echeverría (CUJAE) — Havana, Cuba",
+  },
+];
+
+const technicalSkills = [
+  {
+    area: "Hardware and Embedded Systems",
+    skills: [
+      "Microcontrollers",
+      "Microchip PIC Family",
+      "Field-Programmable Gate Array (FPGA)",
+      "Analog & Digital Circuit Simulation",
+    ],
+  },
+];
 ---
+
 <BaseLayout title="About Me">
   <h1>About Me</h1>
 
@@ -11,17 +44,46 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <section>
     <h2>Education</h2>
-    <p>Automation Engineering, Technological University of Havana (CUJAE)</p>
+    {education.map((edu) => (
+      <article class="entry-card">
+        <div class="entry-header">
+          <span class="entry-date">{edu.date}</span>
+          <span class="entry-title">{edu.institution}</span>
+        </div>
+        <p class="entry-degree">{edu.degree}</p>
+      </article>
+    ))}
   </section>
 
   <section>
     <h2>Experience</h2>
-    <p>Oil Industry — Power Electronics Maintenance: VFDs, inverters/chargers, SMPS for industrial equipment.</p>
+    {experience.map((job) => (
+      <article class="entry-card">
+        <div class="entry-header">
+          <span class="entry-date">{job.date}</span>
+          <span class="entry-title">{job.company}</span>
+        </div>
+        <ul class="entry-list">
+          {job.responsibilities.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </article>
+    ))}
   </section>
 
   <section>
     <h2>Technical Skills</h2>
-    <p>FPGA programming (Xilinx, RTL/hierarchical design), MicroBlaze soft-core embedded systems, microcontrollers, digital design, CAD tools.</p>
+    {technicalSkills.map((skillArea) => (
+      <article class="skill-card">
+        <h3 class="skill-area">{skillArea.area}</h3>
+        <ul class="skill-list">
+          {skillArea.skills.map((skill) => (
+            <li>{skill}</li>
+          ))}
+        </ul>
+      </article>
+    ))}
   </section>
 
   <section>
@@ -29,3 +91,60 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <p><!-- hobbies, interests, whatever makes it feel like you --></p>
   </section>
 </BaseLayout>
+
+<style>
+  /* Shared card pattern — used by both Education and Experience */
+  .entry-card {
+    border-left: 3px solid #6b93c7;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .entry-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .entry-date {
+    font-weight: bold;
+    color: #555;
+  }
+  .entry-title {
+    font-weight: bold;
+  }
+  .entry-degree {
+    margin: 0;
+    color: #333;
+  }
+  .entry-list {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+  .entry-list li {
+    margin-bottom: 0.35rem;
+  }
+
+  /* Skills — pill/tag style, distinct from the card pattern above */
+  .skill-card {
+    margin-bottom: 1.5rem;
+  }
+  .skill-area {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  .skill-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .skill-list li {
+    background: #eef3fa;
+    color: #33547a;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+  }
+</style>
