@@ -9,15 +9,13 @@ const lang = Astro.currentLocale ?? 'en';
   <Hero
     greeting="Hello, I am"
     name="Javier Horta"
-    summary="I am a graduate in Automation Engineering with 3 years of experience working in the manufacturing and oil industries. I worked on the maintenance, repair, and commissioning of automated equipment (industrial bottling, capping, and sealing machines) for personal hygiene product manufacturing. In the oil sector, I carried out the installation, maintenance, and repair of automated systems (electrical panels, PLCs, SCADA, VFDs) for monitoring and controlling crude oil extraction processes. My skills lie in the fields of electricity, electronics, instrumentation, and industrial automation. I have a particular interest in the design and development of embedded systems, specifically microcontroller programming and reconfigurable devices (FPGAs), as well as the integration of AI technologies into these systems."
+    summary="I am an Automation Engineer graduated from the Technological University of Havana (CUJAE), specializing in the installation, troubleshooting, maintenance, and repair of industrial control systems and instrumentation. At heart, I am deeply passionate about electronics, electrical engineering, software development, and mechanics. I love building things hands-on—taking ideas from concept to real-world hardware that comes alive to solve practical challenges.""
     quotes={[
       { text: "I have not failed. I've just found 10,000 ways that won't work.", author: "Thomas Edison" },
       { text: "Imagination is more important than knowledge.", author: "Albert Einstein" },
       { text: "The present is theirs; the future, for which I really worked, is mine.", author: "Nikola Tesla" },
     ]}
-    photoAlt="Javier Horta"
-    initials="JH"
-    ctaText="Learn more about me"
+    ctaText="View Portfolio"
     ctaHref={getRelativeLocaleUrl(lang, '/about')}
   />
 </BaseLayout>

@@ -1,12 +1,13 @@
 ---
-import { getRelativeLocaleUrl } from 'astro:i18n';
-import { useTranslations } from '../i18n/utils';
-import '../styles/global.css';
+import "../styles/global.css";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { useTranslations } from "../i18n/utils";
 
 const { title } = Astro.props;
-const lang = Astro.currentLocale ?? 'en';
+const lang = Astro.currentLocale ?? "en";
 const t = useTranslations(lang);
 ---
+
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
@@ -14,23 +15,87 @@ const t = useTranslations(lang);
     <title>{title} | Javier Horta</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <a href={getRelativeLocaleUrl(lang, '/')}>{t('nav.home')}</a>
-        <a href={getRelativeLocaleUrl(lang, '/about')}>{t('nav.about')}</a>
-        <a href={getRelativeLocaleUrl(lang, '/gallery')}>{t('nav.gallery')}</a>
-        <a href={getRelativeLocaleUrl(lang, '/contact')}>{t('nav.contact')}</a>
-      </nav>
-      <div class="lang-switcher">
-        <a href={getRelativeLocaleUrl('en', '/')}>EN</a> |
-        <a href={getRelativeLocaleUrl('es', '/')}>ES</a>
+    <header class="site-header">
+      <div class="container nav-inner">
+        <a class="brand" href={getRelativeLocaleUrl(lang, "/")}>Javier Horta</a>
+        <nav>
+          <a href={getRelativeLocaleUrl(lang, "/")}>{t("nav.home")}</a>
+          <a href={getRelativeLocaleUrl(lang, "/about")}>{t("nav.about")}</a>
+          <a href={getRelativeLocaleUrl(lang, "/gallery")}>{t("nav.gallery")}</a
+          >
+          <a href={getRelativeLocaleUrl(lang, "/contact")}>{t("nav.contact")}</a
+          >
+        </nav>
+        <div class="lang-switcher">
+          <a href={getRelativeLocaleUrl("en", "/")}>EN</a> | <a
+            href={getRelativeLocaleUrl("es", "/")}>ES</a
+          >
+        </div>
       </div>
     </header>
 
-    <main><slot /></main>
+    <main class="container">
+      <slot />
+    </main>
 
-    <footer>
-      <p>&copy; {new Date().getFullYear()} Javier Horta — {t('footer.rights')}</p>
+    <footer class="site-footer">
+      <div class="container">
+        <p>
+          &copy; {new Date().getFullYear()} Javier Horta — {t("footer.rights")}
+        </p>
+      </div>
     </footer>
   </body>
 </html>
+
+<style>
+  .site-header {
+    background: var(--color-primary);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    padding-top: var(--space-sm);
+    padding-bottom: var(--space-sm);
+  }
+  .brand {
+    color: white;
+    font-weight: bold;
+    font-size: var(--text-lg);
+    text-decoration: none;
+  }
+  .nav-inner nav {
+    display: flex;
+    gap: var(--space-md);
+  }
+  .nav-inner nav a,
+  .lang-switcher a {
+    color: white;
+    text-decoration: none;
+    font-size: var(--text-sm);
+  }
+  .nav-inner nav a:hover,
+  .lang-switcher a:hover {
+    text-decoration: underline;
+  }
+  .lang-switcher {
+    font-size: var(--text-sm);
+    color: white;
+  }
+
+  .site-footer {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    margin-top: var(--space-xl);
+  }
+  .site-footer p {
+    margin: 0;
+    padding: var(--space-sm) 0;
+    color: var(--color-muted);
+    font-size: var(--text-sm);
+    text-align: center;
+  }
+</style>
