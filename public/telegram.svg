@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   fill="#000000"
+   width="800px"
+   height="800px"
+   viewBox="0 0 24 24"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="telegram.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.62875"
+     inkscape:cx="400"
+     inkscape:cy="400"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <path
+     d="M 22.8,0 H 1.2 A 1.1999999,1.2 0 0 0 0,1.2000001 V 22.8 A 1.1999999,1.2 0 0 0 1.2,24 H 22.8 A 1.1999999,1.2 0 0 0 24,22.8 V 1.2000001 A 1.1999999,1.2 0 0 0 22.8,0 Z m -5.6676,11.826 c -0.4152,2.601601 -0.8664,5.4456 -0.8664,5.4456 0,0 -0.0696,0.798 -0.6588,0.936001 A 2.8427999,2.8428 0 0 1 13.8732,17.5836 C 13.734,17.479199 11.2716,15.9192 10.3704,15.156 a 0.6564,0.65640001 0 0 1 0.0348,-1.11 c 1.248,-1.1448 2.7396,-2.5668 3.6408,-3.468 0.4164,-0.4164 0.8328,-1.3871998 -0.9012,-0.2076 -2.4624,1.6992 -4.89,3.294 -4.89,3.294 A 2.0400001,2.04 0 0 1 6.6587999,13.6992 C 5.6184,13.387201 4.4052,12.9708 4.4052,12.9708 c 0,0 -0.8328001,-0.5196 0.5892,-1.08 0,0 6,-2.4623999 8.0808,-3.3287999 0.798,-0.3468 3.5028,-1.4568 3.5028,-1.4568 0,0 1.2492,-0.486 1.1448,0.6936 -0.0348,0.4908 -0.312,2.1899996 -0.5904,4.0271999 z"
+     id="path1"
+     style="stroke-width:1.2;fill:#758ca3;fill-opacity:1" />
+</svg>

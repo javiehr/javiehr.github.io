@@ -3,6 +3,48 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 <BaseLayout title="Contact">
   <h1>Contact</h1>
-  <p>Email: <!-- your email --></p>
-  <p>LinkedIn: <!-- your LinkedIn URL --></p>
+  <p>Please, feel free to contact me or visit my LinkedIn and GitHub profiles</p>
+  <ul class="contact-list">
+    <li class="contact-item">
+      <a href="mailto:javierhorta1999@gmail.com">
+        <img src="/envelope.svg" class="icon">
+        <span>javierhorta1999@gmail.com</span>
+      </a>
+    </li>
+    <li class="contact-item">
+      <a href="https://t.me/javho99" target="_blank" rel="noopener noreferrer">
+        <img src="/telegram.svg" class="icon">
+        <span>Telegram</span>
+      </a>
+    </li>
+    <li class="contact-item">
+      <a href="https://www.linkedin.com/in/javier-horta" target="_blank" rel="noopener noreferrer">
+        <img src="/linkedin.svg" class="icon">
+        <span>LinkedIn</span>
+      </a>
+    </li>
+    <li class="contact-item">
+      <a href="https://github.com/javiehr" target="_blank" rel="noopener noreferrer">
+        <img src="/github.svg" class="icon">
+        <span>GitHub</span>
+      </a>
+    </li>
+  </ul>
 </BaseLayout>
+
+<style>
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+  .contact-list {
+    list-style: none;
+    padding: 0;
+  }
+  .contact-item a{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: var(--space-md);
+  }
+</style>

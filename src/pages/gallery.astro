@@ -31,7 +31,10 @@ const items = [
 
 <BaseLayout title="Gallery">
   <h1>Gallery</h1>
-  <p>Welcome to my gallery! Here you'll find some photos relevant to my career and work</p>
+  <p>
+    Welcome to my gallery! Here you'll find some photos relevant to my career
+    and work
+  </p>
   <div class="gallery-grid">
     {
       items.map((item) => (
@@ -53,25 +56,25 @@ const items = [
 </BaseLayout>
 
 <style>
-.gallery-grid {
-  display: grid;
-  /* Mínimo 200px por elemento, máximo 1fr. Ocupa hasta 3 columnas */
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-  max-width: 900px; /* Al limitar el ancho del contenedor, controlas el número máximo de columnas */
-  gap: 10px;
-}
-
-@media (max-width: 800px) {
   .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    /* Mínimo 200px por elemento, máximo 1fr. Ocupa hasta 3 columnas */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    max-width: 900px; /* Al limitar el ancho del contenedor, controlas el número máximo de columnas */
+    gap: 10px;
   }
-}
 
-@media (max-width: 500px) {
-  .gallery-grid {
-    grid-template-columns: 1fr;
+  @media (max-width: 800px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
-}
+
+  @media (max-width: 500px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
   .gallery-thumb {
     width: 100%;
     aspect-ratio: 4 / 3;
@@ -84,7 +87,7 @@ const items = [
   .gallery-thumb:hover {
     transform: scale(1.02);
   }
-  .gallery-item{
+  .gallery-item {
     margin: 25px;
   }
   .gallery-item figcaption {
