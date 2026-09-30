@@ -1,11 +1,17 @@
 ---
+import { boolean, string } from "astro:schema";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const experience = [
   {
     date: "2024 — 2026",
-    company:
-      "Central Petroleum Drilling and Extraction Company (EPEPC) — Matanzas, Cuba",
+    company: {
+      name: "Central Petroleum Drilling and Extraction Company (EPEPC)",
+      social_media: [
+        {icon:"/x.svg", link:"https://x.com/EPEPCentro?s=20"},
+        {icon:"/facebook.svg", link:"https://www.facebook.com/epepc"}
+      ],
+    },
     responsibilities: [
       "Maintained, repaired, and installed Variable Frequency Drives (VFDs) and power electronics units, restoring operational capacity for crude oil extraction.",
       "Executed preventive and corrective maintenance on industrial automation equipment, workstation PCs, and control loop tuning on field instrumentation (HART and FOUNDATION Fieldbus protocols).",
@@ -15,8 +21,10 @@ const experience = [
   },
   {
     date: "2023 — 2024",
-    company:
-      "Suchel Jovel Subsidiary - Household & Personal Care Manufacturing — Matanzas, Cuba",
+    company: {
+      name: "Suchel Jovel Subsidiary - Household & Personal Care Manufacturing",
+      social_media: []
+    },
     responsibilities: [
       "Provided IT support for the plant's computer systems and networks",
       "Assisted in the maintenance and repair of automated production machinery",
@@ -27,9 +35,15 @@ const experience = [
 const education = [
   {
     date: "2018 — 2023",
-    degree: "Automation Engineering",
-    institution:
-      "Technological University of Havana José Antonio Echeverría (CUJAE) — Havana, Cuba",
+    degree: "B.Eng. Automation Engineering",
+    institution: {
+      name: "Technological University of Havana José Antonio Echeverría (CUJAE)",
+      social_media: [
+        {icon: "/website.svg", link: "https://www.cujae.edu.cu/"},
+        {icon:"/x.svg", link:"https://x.com/CujaeRedSocial?s=20"},
+        {icon:"/facebook.svg", link:"https://www.facebook.com/CujaeRedSocial"}
+      ],
+    }
   },
 ];
 
@@ -120,7 +134,16 @@ const technicalSkills = [
         <article class="entry-card">
           <div class="entry-header">
             <span class="entry-date">{edu.date}</span>
-            <span class="entry-title">{edu.institution}</span>
+            <span class="entry-title">{edu.institution.name}</span>
+            <span class="entry-social">
+              {
+                edu.institution.social_media.map(
+                  (item) => (
+                    <a href={item.link}><img class="icon" src={item.icon}></a>
+                  )
+                )
+              }
+            </span>
           </div>
           <p class="entry-degree">{edu.degree}</p>
         </article>
@@ -135,7 +158,16 @@ const technicalSkills = [
         <article class="entry-card">
           <div class="entry-header">
             <span class="entry-date">{job.date}</span>
-            <span class="entry-title">{job.company}</span>
+            <span class="entry-title">{job.company.name}</span>
+            <span class="entry-social">
+              {
+                job.company.social_media.map(
+                  (item) => (
+                    <a href={item.link}><img src={item.icon} class="icon"></a>
+                  )
+                )
+              }
+            </span>
           </div>
           <ul class="entry-list">
             {job.responsibilities.map((item) => (
@@ -179,6 +211,7 @@ const technicalSkills = [
   }
   .entry-header {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
     gap: 0.5rem var(--space-sm);
     margin-bottom: var(--space-xs);
@@ -203,6 +236,14 @@ const technicalSkills = [
   .entry-list li {
     margin-bottom: 0.35rem;
   }
+  .entry-social {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs)
+  }
+  .entry-social a {
+    display: inline-flex
+  }
   .skill-card {
     margin-bottom: var(--space-md);
   }
@@ -225,5 +266,9 @@ const technicalSkills = [
     padding: 0.35rem 0.9rem;
     border-radius: 999px;
     font-size: var(--text-sm);
+  }
+  .icon {
+    width: var(--text-lg);
+    height: var(--text-lg);
   }
 </style>

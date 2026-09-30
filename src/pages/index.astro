@@ -10,11 +10,11 @@ const lang = Astro.currentLocale ?? "en";
   <Hero
     greeting="Hello, I am"
     name="Javier Horta"
-    summary={`I am an Automation Engineer graduated from the Technological University of Havana (CUJAE), 
-    specializing in the installation, troubleshooting, maintenance, and repair of industrial 
-    control systems and instrumentation.<br><br>At heart, I see myself as a humble technician with a deep 
-    passion for electrical engineering, electronics, programming, and mechanics. I love building things hands-on—
-    taking ideas from concept to real-world hardware that comes alive to solve practical challenges.`}
+    summary={[
+      "I am an Automation Engineer specializing in the installation, troubleshooting, maintenance, and repair of industrial control systems and instrumentation.",
+      "At heart, I see myself as a humble technician with a deep passion for electrical engineering, electronics, programming, and mechanics.",
+      "I love building things hands-on—taking ideas from concept to real-world hardware that comes alive to solve practical challenges.",
+    ]}
     quotes={[
       {
         text: "I have not failed. I've just found 10,000 ways that won't work.",

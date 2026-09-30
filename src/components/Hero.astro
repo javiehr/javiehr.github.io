@@ -6,7 +6,7 @@ interface QuoteItem {
 interface Props {
   greeting: string;
   name: string;
-  summary: string;
+  summary: string[];
   quotes: QuoteItem[];
   photoSrc: string;
   ctaText: string;
@@ -39,7 +39,12 @@ const { greeting, name, summary, quotes, photoSrc, ctaText, ctaHref } =
 </section>
 
 <section class="summary">
-  <p class="summary-text" set:html={summary} />
+  <!-- <p class="summary-text" set:html={summary} /> -->
+   {
+    summary.map(
+      (item) => (<p class="summary-text">{item}</p>)
+    )
+   }
   <a class="cta-button" href={ctaHref}>{ctaText}</a>
 </section>
 
