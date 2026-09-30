@@ -1,0 +1,16 @@
+  .icon {
+      width: 24px;
+      height: 24px;
+  }
+
+  .contact-list {
+      list-style: none;
+      padding: 0;
+  }
+
+  .contact-item a {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: var(--space-md);
+  }

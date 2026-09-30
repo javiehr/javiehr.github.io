@@ -2,11 +2,12 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import "../styles/index.css"
 
 const lang = Astro.currentLocale ?? "en";
 ---
 
-<BaseLayout title="Home">
+<BaseLayout title="Home" style="index.css">
   <Hero
     greeting="Hello, I am"
     name="Javier Horta"

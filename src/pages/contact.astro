@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import "../styles/contact.css"
 ---
-<BaseLayout title="Contact">
+<BaseLayout title="Contact" style="contact.css">
   <h1>Contact</h1>
   <p>Please, feel free to contact me or visit my LinkedIn and GitHub profiles</p>
   <ul class="contact-list">
@@ -32,19 +33,3 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </ul>
 </BaseLayout>
 
-<style>
-  .icon {
-    width: 24px;
-    height: 24px;
-  }
-  .contact-list {
-    list-style: none;
-    padding: 0;
-  }
-  .contact-item a{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: var(--space-md);
-  }
-</style>
