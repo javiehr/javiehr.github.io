@@ -2,6 +2,7 @@
 interface QuoteItem {
   text: string;
   author: string;
+  book: string
 }
 interface Props {
   greeting: string;
@@ -28,7 +29,7 @@ const { greeting, name, summary, quotes, photoSrc, ctaText, ctaHref } =
         quotes.map((q, i) => (
           <blockquote class="quote-item" class:list={[{ active: i === 0 }]}>
             <p>"{q.text}"</p>
-            <footer>— {q.author}</footer>
+            <footer>— <cite>{q.author}<em>{q.book}</em></cite></footer>
           </blockquote>
         ))
       }
