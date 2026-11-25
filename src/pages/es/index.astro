@@ -7,7 +7,7 @@ import "../../styles/index.css"
 const lang = Astro.currentLocale ?? "en";
 ---
 
-<BaseLayout title="Home" style="index.css">
+<BaseLayout title="Inicio" style="index.css">
   <Hero
     greeting="Hola, soy"
     name="Javier Horta Remedios"
@@ -35,6 +35,6 @@ const lang = Astro.currentLocale ?? "en";
     ]}
     ctaText="Ver Portafolio"
     ctaHref={getRelativeLocaleUrl(lang, "/about")}
-    photoSrc="../../images/profile.png"
+    photoSrc="../../images/profile.webp"
   />
 </BaseLayout>
