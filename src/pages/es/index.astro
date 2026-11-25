@@ -1,7 +1,40 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import "../../styles/index.css"
+
+const lang = Astro.currentLocale ?? "en";
 ---
-<BaseLayout title="Inicio">
-  <h1>Hola, soy Javier Horta</h1>
-  <p>Ingeniero en Automática con experiencia en diseño FPGA, sistemas embebidos y electrónica de potencia industrial.</p>
+
+<BaseLayout title="Home" style="index.css">
+  <Hero
+    greeting="Hola, soy"
+    name="Javier Horta Remedios"
+    summary={[
+      "Soy un Ingeniero en Automática dedicado a la instalación, reparación y mantenimiento de sistemas de control e instrumentación industrial.",
+      "En el fondo, me considero un simple técnico con una pasión profunda por la ingeniería eléctrica, electrónica, programación y la mecánica.",
+      "Me apasiona construir cosas con mis propias manos, llendo desde el concepto hasta la implementación física y viendo como cobran vida.",
+    ]}
+    quotes={[
+      {
+        text: "Ningún bien puede obtenerse nunca de desvriarse del camino que fuiste destinado a seguir.",
+        author: "Robert Greene",
+        book:', Maestría'
+      },
+      {
+        text: "No he fracasado. Solo he encontrado 10,000 formas que no funcionan.",
+        author: "Thomas Edison",
+        book:''
+      },
+      {
+        text: "La imaginación es más importante que el conocimiento.",
+        author: "Albert Einstein",
+        book:''
+      },
+    ]}
+    ctaText="Ver Portafolio"
+    ctaHref={getRelativeLocaleUrl(lang, "/about")}
+    photoSrc="../../images/profile.png"
+  />
 </BaseLayout>

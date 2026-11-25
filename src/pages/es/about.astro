@@ -1,0 +1,194 @@
+---
+import { boolean, string } from "astro:schema";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/about.css";
+
+const experience = [
+  {
+    date: "2024 — 2026",
+    company: {
+      name: "Empresa de Perforación y Extracción de Petróleo Centro (EPEP Centro)",
+      social_media: [
+        { icon: "/x.svg", link: "https://x.com/EPEPCentro?s=20" },
+        { icon: "/facebook.svg", link: "https://www.facebook.com/epepc" },
+      ],
+    },
+    responsibilities: [
+      "Mantenimiento, reparación e instalación de Variadores de Frecuencia (VFDs) y unidades de electrónica de potencia, restaurando la capacidad operativa para la extracción de petróleo crudo.",
+      "Mantenimiento preventivo y correctivo en equipos de automatización industrial, PCs de estación de trabajo y ajuste de bucles de control en instrumentación de campo (protocolos HART y FOUNDATION Fieldbus).",
+      "Reparación de componentes electrónicos y resolución de problemas de hardware en controladores lógicos programables (Siemens S7-200, Smar DF63), restaurando la infraestructura crítica de control y comunicación.",
+      "Instalación y mantenimiento de paneles eléctricos, instrumentación y sistemas de control.",
+    ],
+  },
+  {
+    date: "2023 — 2024",
+    company: {
+      name: "Empresa Filial Suchel Jovel",
+      social_media: [],
+    },
+    responsibilities: [
+      "Soporte de los sistemas informáticos y redes de la planta.",
+      "Asistencia en el mantenimiento y reparación de maquinaria automatizada de producción",
+    ],
+  },
+];
+
+const education = [
+  {
+    date: "2018 — 2023",
+    degree: "Ingeniero en Automática",
+    institution: {
+      name: 'Universidad Tecnológica de La Habana "José Antonio Echeverría" (CUJAE)',
+      social_media: [
+        { icon: "/website.svg", link: "https://www.cujae.edu.cu/" },
+        { icon: "/x.svg", link: "https://x.com/CujaeRedSocial?s=20" },
+        {
+          icon: "/facebook.svg",
+          link: "https://www.facebook.com/CujaeRedSocial",
+        },
+      ],
+    },
+  },
+];
+
+const technicalSkills = [
+  {
+    area: "Hardware y Sistemas Embebidos",
+    skills: [
+      "Microcontroladores",
+      "Familia PIC de Microchip",
+      "Field-Programmable Gate Array (FPGA)",
+      "Simulación de Circuitos Analógicos y Digitales",
+    ],
+  },
+  {
+    area: "Electrónica y Sistemas de Energía",
+    skills: [
+      "Convertidores de Potencia (Inversores, DC-DC, SMPS)",
+      "Resolución de Problemas a Nivel de Componentes",
+      "Reparación de PCBs",
+      "Sistemas Fotovoltaicos (PV) (Instalación, Mantenimiento y Resolución de Problemas)",
+    ],
+  },
+  {
+    area: "Automatización e Ingeniería de Control",
+    skills: [
+      "Controladores Lógicos Programables (PLCs)",
+      "Interfaces Hombre-Máquina (HMIs)",
+      "Variadores de Frecuencia de Baja y Media Tensión (VFDs)",
+      "Protocolos de Comunicación Industrial (FOUNDATION™ Fieldbus, HART)",
+      "Instrumentación y Sensores",
+    ],
+  },
+  {
+    area: "Lenguajes de Programación",
+    skills: [
+      "Lógica Ladder (PLC)",
+      "C/C++ para Sistemas Embebidos",
+      "Ensamblador",
+      "VHDL",
+    ],
+  },
+];
+---
+
+<BaseLayout title="Portfolio" style="../../styles/about.css">
+  <h1>Portafolio</h1>
+  <section>
+    <h2>Resumen</h2>
+    <p>
+      Mi pasión por la tecnología y la ingeniería me llevó naturalmente a
+      perseguir un título en Ingeniería de Automatización en la Universidad
+      Tecnológica de La Habana (CUJAE) desde 2018 hasta 2023. Durante mis
+      estudios, me concentré fuertemente en circuitos eléctricos, electrónica y
+      programación. Motivado por un espíritu de colaboración, organizaba
+      regularmente grupos de estudio con compañeros para compartir conocimientos
+      y desglosar conceptos complejos juntos.
+    </p>
+    <p>
+      En 2023, comencé mi carrera profesional en una planta de fabricación de
+      artículos de higiene personal como especialista en TI, al tiempo que
+      asistía en la mantenimiento y reparación de maquinaria de producción
+      automatizada.
+    </p>
+    <p>
+      En 2024, me uní a la <a
+        href="https://x.com/EPEPCentro?s=20"
+        target="_blank"
+        rel="noopener noreferer"
+      >
+        Empresa de Perforación y Extracción de Petróleo del Centro (EPEPC)
+      </a> (división más producora de petróleo y gas del país) como Especialista en Automatización. 
+      En este rol, amplié mi experiencia práctica en instrumentación
+      industrial, electrónica de potencia y programación de control embebido.
+      Ante las limitaciones de recursos, logré reparar dispositivos críticos de
+      control electrónico para restablecer líneas de producción detenidas. Entre
+      mis responsabilidades también se encontraba la instalación y el
+      mantenimiento de tableros eléctricos e instrumentación en operaciones de
+      extracción.
+    </p>
+    <p>
+      Actualmente, estoy expandiendo mi enfoque profesional hacia el diseño de sistemas embebidos,
+      electrónica digital y desarrollo de software, con un fuerte interés en
+      integrar tecnologías de inteligencia artificial directamente en hardware embebido.
+    </p>
+  </section>
+
+  <section>
+    <h2>Educación</h2>
+    {education.map((edu) => (
+      <article class="entry-card">
+        <div class="entry-header">
+          <span class="entry-date">{edu.date}</span>
+          <span class="entry-title">{edu.institution.name}</span>
+          <span class="entry-social">
+            {edu.institution.social_media.map((item) => (
+              <a href={item.link}>
+                <img class="icon" src={item.icon} />
+              </a>
+            ))}
+          </span>
+        </div>
+        <p class="entry-degree">{edu.degree}</p>
+      </article>
+    ))}
+  </section>
+
+  <section>
+    <h2>Experiencia</h2>
+    {experience.map((job) => (
+      <article class="entry-card">
+        <div class="entry-header">
+          <span class="entry-date">{job.date}</span>
+          <span class="entry-title">{job.company.name}</span>
+          <span class="entry-social">
+            {job.company.social_media.map((item) => (
+              <a href={item.link}>
+                <img src={item.icon} class="icon" />
+              </a>
+            ))}
+          </span>
+        </div>
+        <ul class="entry-list">
+          {job.responsibilities.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </article>
+    ))}
+  </section>
+
+  <section>
+    <h2>Habilidades Técnicas</h2>
+    {technicalSkills.map((skillArea) => (
+      <article class="skill-card">
+        <h3 class="skill-area">{skillArea.area}</h3>
+        <ul class="skill-list">
+          {skillArea.skills.map((skill) => (
+            <li>{skill}</li>
+          ))}
+        </ul>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

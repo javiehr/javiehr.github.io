@@ -1,0 +1,126 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import "../../styles/gallery.css"
+
+const items = [
+  {
+    src: "/images/gallery/graduation1.webp",
+    title: "Ceremonia de Graduación",
+    description: "Con algunos amigos en nuestra ceremonia de graduación en 2023 — Havana, Cuba",
+  },
+  {
+    src: "/images/gallery/solar.webp",
+    title: "Instalación de Panel Solar",
+    description:
+      "Instalando un sistema de paneles solares en una vivienda rural en Cuba",
+  },
+  {
+    src: "/images/gallery/nova_smar_1.jpeg",
+    title: "Evento PATS 2024",
+    description:
+      "Participando en el evento PATS 2024 de Nova Smar con mi equipo de trabajo — Melia Havana Hotel, Cuba. <a href='https://www.smar.com.br/es/noticia/pats-2024-havana-cuba' target='_blank' rel='noopener noreferrer'>Enlace oficial</a>",
+  },
+  {
+    src: "/images/gallery/nova_smar_2.webp",
+    title: "Evento PATS 2024",
+    description:
+      "Encuentro con algunos colegas en el evento PATS 2024 de Nova Smar — Melia Havana Hotel, Cuba.",
+  },
+  {
+    src: "/images/gallery/vfd_cienfuegos.webp",
+    title: "Reparación de un VFD",
+    description:
+      "Diagnóstico y Reparación de un VFD en la planta de embotellamiento Ciego Montero — Cienfuegos, Cuba",
+  },
+  {
+    src: "/images/gallery/control_panel.webp",
+    title: "Instalación de un Panel de Control Eléctrico",
+    description:
+      "Instalando el panel eléctrico para el sistema de control del Centro de Recolección de Petróleo Crudo #12 — Matanzas, Cuba",
+  },
+  {
+    src: "/images/gallery/vd1011_failure.webp",
+    title: "Resolución de un fallo en un VFD",
+    description:
+      "Respondiendo a un fallo imprevisto del VFD en el pozo VD-1011 — Matanzas, Cuba",
+  },
+  {
+    src: "/images/gallery/vd1011_maintenance.webp",
+    title: "Rutina de mantenimiento en un VFD",
+    description:
+      "Rutina de mantenimiento del VFD en el pozo VD-1011 — Matanzas, Cuba",
+  },
+  {
+    src: "/images/gallery/centre12.webp",
+    title: "Remplazo de la unidad de bombeo del pozo VD-1011",
+    description:
+      "Participando en el reemplazo de la unidad de bombeo y el VFD para el pozo VD-1011 — Matanzas, Cuba",
+  },
+
+  // Add more entries here later — just copy this object shape
+];
+---
+
+<BaseLayout title="Galería" style="gallery.css">
+  <h1>Galería</h1>
+  <p>
+    ¡Bienvenido a mi galería! Aquí encontrarás algunas fotos relevantes a mi carrera
+    y trabajo
+  </p>
+  <div class="gallery-grid">
+    {
+      items.map((item) => (
+        <figure class="gallery-item">
+          <img src={item.src} alt={item.title} class="gallery-thumb" />
+          <figcaption>
+            <h3>{item.title}</h3>
+            <p set:html={item.description} />
+          </figcaption>
+        </figure>
+      ))
+    }
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <img src="" alt="" />
+  </div>
+</BaseLayout>
+
+<script>
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = lightbox?.querySelector("img");
+  const closeBtn = lightbox?.querySelector(".lightbox-close");
+
+  function openLightbox(src: string, alt: string) {
+    if (!lightbox || !lightboxImg) return;
+    (lightboxImg as HTMLImageElement).src = src;
+    (lightboxImg as HTMLImageElement).alt = alt;
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden", "false");
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+  }
+
+  document
+    .querySelectorAll<HTMLImageElement>(".gallery-thumb")
+    .forEach((img) => {
+      img.addEventListener("click", () => openLightbox(img.src, img.alt));
+    });
+
+  closeBtn?.addEventListener("click", closeLightbox);
+
+  // Click outside the image (on the dark backdrop) also closes it
+  lightbox?.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  // Escape key closes it too — good accessibility practice
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeLightbox();
+  });
+</script>
